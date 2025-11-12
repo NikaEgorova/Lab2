@@ -24,6 +24,34 @@
         body {
             font-family: 'Roboto MF', sans-serif;
         }
+        /* Стиль для адаптивного розташування новин в рядок */
+        .news-gallery {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px; /* Проміжок між новинами */
+        }
+
+        /* Стиль для окремого блоку новини */
+        .news-item {
+            flex-basis: 25%; /* Кожен блок займає 1/4 ширини */
+        }
+
+        /* Стиль для контейнера зображення, щоб задати фіксовану висоту */
+        .news-image-container {
+            width: 100%;
+            height: 350px; /* Фіксована висота для всіх фото новин */
+            overflow: hidden; /* Обрізаємо все, що виходить за межі */
+        }
+
+        /* Стиль для самого зображення */
+        .news-image-container img {
+            width: 100%;
+            height: 100%;
+            /* Ключова властивість: заповнює контейнер, обрізаючи зайве, 
+               але зберігаючи пропорції */
+            object-fit: cover; 
+            display: block;
+        }
     </style>
 </head>
 
@@ -75,23 +103,67 @@
         </div>
     </div>
     
-    <hr> <p>
+    <p>
         Математичний факультет - один з найстаріших факультетів університету. 
         У традиціях усіх класичних університетів світу математичний факультет ЗНУ надає 
         студентам фундаментальну освіту з широкого кола питань, пов'язаних з обраною спеціальністю.
     </p>
+    <hr>
 
     
     <h3>
-	Останні новини факультету
-	<a class="remark" href="http://sites.znu.edu.ua/news.php?start=0&amp;site_id=27&amp;interface_lang=ukr">Всі новини</a>
+    Останні новини факультету
+    <a class="remark" href="http://sites.znu.edu.ua/news.php?start=0&amp;site_id=27&amp;interface_lang=ukr">Всі новини</a>
     <a class="remark" href="http://sites.znu.edu.ua/cms/index.php?action=news/rss&amp;site_id=27&amp;lang=ukr&amp;rows=10&amp;template=&amp;date=desc&amp;category_id=0">RSS</a>
     </h3>
 
-    <figure>
-        <img src="./image/symbol.jpg" alt="Символіка МФ" width="300">
-        <figcaption>Символіка Математичного факультету.</figcaption>
-    </figure>
+    <div class="news-gallery">
+        
+        <div class="news-item"> 
+            <a href="./news.html">
+                <div class="news-image-container">
+                    <img src="./image/news_1.jpg" alt="Екскурсія ліцеїстів">
+                </div>
+            </a>
+            <p style="font-size: 0.9em;">
+                <strong><a href="./news.html">Викладачі кафедри провели екскурсію для ліцеїстів</a></strong>
+            </p>
+        </div>
+
+        <div class="news-item">
+            <a href="./news.html">
+                <div class="news-image-container">
+                    <img src="./image/news_2.jpeg" alt="Кіновечір">
+                </div>
+            </a>
+            <p style="font-size: 0.9em;">
+                <strong><a href="./news.html">Кіновечір на математичному</a></strong>
+            </p>
+        </div>
+
+        <div class="news-item">
+            <a href="./news.html">
+                <div class="news-image-container">
+                    <img src="./image/news_3.jpg" alt="Нова ректорка">
+                </div>
+            </a>
+            <p style="font-size: 0.9em;">
+                <strong><a href="./news.html">МОН України призначило ректорку ЗНУ</a></strong>
+            </p>
+        </div>
+
+        <div class="news-item">
+            <a href="./news.html">
+                <div class="news-image-container">
+                    <img src="./image/news_4.jpg" alt="День Знань">
+                </div>
+            </a>
+            <p style="font-size: 0.9em;">
+                <strong><a href="./news.html">День знань-2025 у ЗНУ</a></strong>
+            </p>
+        </div>
+        
+    </div>
 </main>
 <footer>
     <p>&copy; 2025 | Група XX-XX | Математичний факультет</p>

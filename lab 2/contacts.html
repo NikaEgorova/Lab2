@@ -55,6 +55,37 @@
 			</div>
 		</div>
 	</header>
+    <main>
+    <h1>Форма зворотного зв'язку</h1>
+    
+    <form action="#" method="POST">
+        
+        <label for="firstName">Ім'я:</label><br>
+        <input type="text" id="firstName" name="firstName" placeholder="Ваше ім'я" required><br><br>
+        
+        <label for="lastName">Прізвище:</label><br>
+        <input type="text" id="lastName" name="lastName" placeholder="Ваше прізвище" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" placeholder="Ваш email" required><br><br>
+
+        <label for="phone">Телефон:</label><br>
+        <input 
+            type="tel" 
+            id="phone" 
+            name="phone" 
+            placeholder="+380XXXXXXXXX" 
+            pattern="[0-9]{10,12}" 
+            required
+        ><br><br>
+
+        <label for="message">Повідомлення:</label><br>
+        <textarea id="message" name="message" rows="5" placeholder="Ваше повідомлення" required></textarea><br><br>
+
+        <button type="submit">Надіслати</button>
+        
+    </form>
+    </main>
     <footer>
         <p>&copy; 2025 | Група XX-XX | Математичний факультет</p>
     </footer>
