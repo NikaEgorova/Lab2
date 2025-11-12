@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <title>Main page</title>
+    <link rel="shortcut icon" href="./image/favicon.ico" type="image/x-icon">
+    <style>
+        /* 1. Визначення шрифту Roboto Regular */
+        @font-face {
+            font-family: 'Roboto MF'; /* Даємо назву нашому сімейству */
+            src: url('./fonts/Roboto-Regular.ttf') format('truetype'); 
+            font-weight: 400; /* Regular */
+            font-style: normal;
+        }
+
+        /* 2. Визначення шрифту Roboto Bold */
+        @font-face {
+            font-family: 'Roboto MF'; /* Використовуємо ту саму назву сімейства */
+            src: url('./fonts/Roboto-Bold.ttf') format('truetype'); 
+            font-weight: 700; /* Bold */
+            font-style: normal;
+        }
+
+        /* 3. Застосування шрифту до всього тіла документа */
+        body {
+            font-family: 'Roboto MF', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+	<header class="header">
+		<div class="wrapper">
+			<div class="header_wrapper">
+				<div class="wrapper_logo">
+					<a href="/" class="wrapper_logo-link">
+						<img src="./image/logo.png" alt="logo" class="wrapper_logo-pic">
+					</a>
+				</div>
+				<nav class="header_nav">
+					<ul class="header_list-menu">
+						<li class="header_item">
+							<a href="./index.html" class="header link">Головна</a>
+						</li>
+						<li class="header item">
+							<a href="./news.html" class="header link">Новини</a>
+						</li>
+						<li class="header item">
+							<a href="./education.html" class="header link">Навчання</a>
+						</li>
+						<li class="header item">
+							<a href="./contacts.html" class="header link">Контакти</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
+    <footer>
+        <p>&copy; 2025 | Група XX-XX | Математичний факультет</p>
+    </footer>
+</body>
+</html>
