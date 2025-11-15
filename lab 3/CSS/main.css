@@ -1,0 +1,259 @@
+/* --- 1. ШРИФТИ --- */
+
+/* Переносимо @font-face, які були в Lab 2 у блоці <style> */
+@font-face {
+    font-family: 'Roboto MF';
+    src: url('../fonts/Roboto-Regular.ttf') format('truetype'); 
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto MF';
+    src: url('../fonts/Roboto-Bold.ttf') format('truetype'); 
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* --- 2. CSS-ЗМІННІ ТА ЗАГАЛЬНІ СТИЛІ --- */
+
+:root {
+    /* Визначаємо універсальніші змінні для легшого використання */
+    --color-primary: #3a82e0;        /* Осн. колір (для хедера, кнопок, заголовків) */
+    --color-secondary: #2b70b5;      /* Додатковий колір (для футера) */
+    --color-text-light: #ffffff;    /* Білий текст */
+    --color-text-dark: #333333;     /* Темний текст */
+    --color-background: #f4f4f4;    /* Світло-сірий фон сторінки */
+    --color-accent: #007bff;        /* Світло-блакитний (для посилань) */
+    --color-border: #235489;        /* Колір межі хедера */
+}
+
+body {
+    font-family: 'Roboto MF', sans-serif; /* Застосовуємо шрифт до всього сайту [cite: 48] */
+    color: var(--color-text-dark); /* Основний колір тексту */
+    background-color: var(--color-background); /* Колір тла [cite: 49] */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Розташовуємо елементи вертикально */
+    min-height: 100vh; /* Висота body мінімум 100% висоти вікна */
+}
+
+/* --- 3. СТИЛІ БЛОКІВ HEADER, MAIN, FOOTER --- */
+
+header {
+    /* Використовуємо ВИЗНАЧЕНУ змінну */
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 0;
+    /* Використовуємо ВИЗНАЧЕНУ змінну */
+    border-bottom: 2px solid var(--color-border); 
+}
+
+footer {
+    background-color: var(--color-secondary); 
+    color: var(--color-text-light);
+    padding: 0;
+    text-align: center;
+}
+
+main {
+    /*max-width: 1200px;  Обмежуємо ширину контенту [cite: 50] */
+    margin: 20px auto; /* Центруємо блок по горизонталі [cite: 50] */
+    padding: 20px;
+    background-color: var(--color-text-light); /* Білий фон для основного контенту */
+    border-radius: 8px; 
+    box-shadow: none;
+    flex-grow: 1; /* Розтягуємо main, щоб зайняти доступний простір */
+}
+
+footer p {
+    text-align: center;
+    margin: 0;
+    font-size: 0.9em;
+}
+
+/* --- 4. СТИЛІ ТЕКСТУ ТА ПОСИЛАНЬ --- */
+
+h1, h2, h3 {
+    color: var(--color-primary);
+    margin-top: 0;
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: none; /* Прибираємо підкреслення */
+}
+
+a:hover {
+    text-decoration: underline; /* Додаємо підкреслення при наведенні [cite: 85] */
+}
+
+/* --- 5. СТИЛІ ДЛЯ ДЕКАНА (був інлайн-стиль) --- */
+.dean-info {
+    display: flex; 
+    gap: 20px; 
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+.dean-info img {
+    border-radius: 4px;
+}
+
+
+/* --- 6. СТИЛІЗАЦІЯ ХЕДЕРА НАВІГАЦІЇ ТА ФУТЕРА --- */
+
+/* Вирівнювання логотипу та навігації */
+.header_wrapper {
+    display: flex;
+    justify-content: space-between; /* Розводимо елементи по краях */
+    align-items: center; /* Вирівнюємо по центру вертикально */
+    max-width: 1200px;
+    margin: 0 auto; 
+    padding: 15px 20px;
+}
+
+/* Логотип */
+.wrapper_logo-pic {
+    width: 64px; 
+    height: 64px;
+}
+
+/* Навігаційний список - РОБИМО ГОРИЗОНТАЛЬНИМ */
+.header_list-menu {
+    list-style: none; /* ВИДАЛЯЄМО МАРКЕРИ */
+    padding: 0;
+    margin: 0;
+    display: flex; /* РОЗМІЩУЄМО ЕЛЕМЕНТИ В РЯДОК */
+    gap: 30px; /* Проміжок між пунктами */
+}
+
+/* Стилізація посилань меню */
+.header_item a {
+    color: var(--color-text-light); /* Білий текст */
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 5px 0; 
+    transition: color 0.3s;
+}
+
+.header_item a:hover {
+    color: #ffcc00; /* Жовтий акцент при наведенні */
+    text-decoration: none;
+}
+
+/* Вирівнювання логотипу та навігації */
+.footer_wrapper {
+    display: flex;
+    justify-content: space-between; /* Розводимо елементи по краях */
+    align-items: center; /* Вирівнюємо по центру вертикально */
+    max-width: 1200px;
+    margin: 0 auto; 
+    padding: 25px 20px;
+}
+
+/* Стилі для елемента, що замінює навігацію у футері (наприклад, копірайт) */
+.footer_copyright {
+    color: var(--color-text-light);
+    font-size: 0.9em;
+    text-align: center; /* Щоб вирівняти текст до правого краю, як меню */
+}
+
+
+/* --- 7. СТИЛІЗАЦІЯ БЛОКУ НОВИН (index.html) --- */
+
+.news-gallery {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px; /* Проміжок між новинами */
+    margin-top: 20px;
+}
+
+.news-item {
+    flex-basis: 23%; /* Даємо невеликий запас, щоб помістилося 4 блоки */
+}
+
+/* Контейнер для фіксованої висоти та обрізки зображень */
+.news-image-container {
+    width: 100%;
+    height: 300px; /* Фіксована висота для всіх фото новин */
+    overflow: hidden; /* Обрізаємо все, що виходить за межі [cite: 50] */
+    margin-bottom: 5px;
+}
+
+.news-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Заповнює контейнер, обрізаючи зайве [cite: 50] */
+    display: block;
+    object-position: top;
+}
+
+/* --- 8. СТИЛІЗАЦІЯ ФОРМИ (contacts.html) --- */
+
+.contact-form label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.contact-form input[type="text"], 
+.contact-form input[type="email"],
+.contact-form input[type="tel"], /* додаємо tel для телефону */
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Враховуємо padding у загальну ширину */
+}
+
+.contact-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.contact-form button {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: var(--color-accent);
+}
+
+/* --- 9. СТИЛІЗАЦІЯ ТАБЛИЦІ (education.html) --- */
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    margin-top: 20px;
+    table-layout: fixed;
+}
+
+.schedule-table th, .schedule-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    vertical-align: middle;
+}
+
+.schedule-table thead tr {
+    background-color: #e0e0e0;
+}
+
+/* Стилі для кольорових блоків розкладу */
+.lecture { /* Жовтий для лекцій (Лк) */
+    background-color: #f7e096;
+}
+
+.lab-practice { /* Блакитний для лабораторних (Лб) */
+    background-color: #d1e5f5; 
+}
