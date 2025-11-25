@@ -1,0 +1,443 @@
+/* --- 1. ШРИФТИ --- */
+
+/* Переносимо @font-face, які були в Lab 2 у блоці <style> */
+@font-face {
+    font-family: 'Roboto MF';
+    src: url('../fonts/Roboto-Regular.ttf') format('truetype'); 
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto MF';
+    src: url('../fonts/Roboto-Bold.ttf') format('truetype'); 
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* --- 2. CSS-ЗМІННІ ТА ЗАГАЛЬНІ СТИЛІ --- */
+
+:root {
+    /* Визначаємо універсальніші змінні для легшого використання */
+    --color-primary: #3a82e0;        /* Осн. колір (для хедера, кнопок, заголовків) */
+    --color-secondary: #2b70b5;      /* Додатковий колір (для футера) */
+    --color-text-light: #ffffff;    /* Білий текст */
+    --color-text-dark: #333333;     /* Темний текст */
+    --color-background: #f4f4f4;    /* Світло-сірий фон сторінки */
+    --color-accent: #007bff;        /* Світло-блакитний (для посилань) */
+    --color-border: #235489;        /* Колір межі хедера */
+}
+
+body {
+    font-family: 'Roboto MF', sans-serif; /* Застосовуємо шрифт до всього сайту [cite: 48] */
+    color: var(--color-text-dark); /* Основний колір тексту */
+    background-color: var(--color-background); /* Колір тла [cite: 49] */
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Висота body 100% висоти вікна */
+    overflow-x: hidden;
+}
+
+/* --- 3. СТИЛІ БЛОКІВ HEADER, MAIN, FOOTER --- */
+
+header {
+    /* Використовуємо ВИЗНАЧЕНУ змінну */
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 0;
+    /* Використовуємо ВИЗНАЧЕНУ змінну */
+    border-bottom: 2px solid var(--color-border); 
+}
+
+footer {
+    background-color: var(--color-secondary); 
+    color: var(--color-text-light);
+    padding: 0;
+    text-align: center;
+}
+
+/* MAIN ТЕПЕР Є ЗОНОЮ GRID - ПРИБИРАЄМО БОКСОВІ СТИЛІ */
+main {
+    /*max-width: 1200px;  Обмежуємо ширину контенту [cite: 50] */
+    margin: 20px auto; /* Центруємо блок по горизонталі [cite: 50] */
+    padding: 20px;
+    background-color: var(--color-text-light); /* Білий фон для основного контенту */
+    border-radius: 8px; 
+    box-shadow: none;
+}
+
+footer p {
+    text-align: center;
+    margin: 0;
+    font-size: 0.9em;
+}
+
+/* НОВИЙ СЕЛЕКТОР: СТИЛІЗАЦІЯ ОБГОРТКИ КОНТЕНТУ (замість стилів на main) */
+.content_wrapper {
+    max-width: 1200px;
+    /* Забезпечуємо відступи та центруючий блок */
+    margin: 20px auto; 
+    padding: 20px;
+    background-color: var(--color-text-light);
+    border-radius: 8px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- 4. СТИЛІ ТЕКСТУ ТА ПОСИЛАНЬ --- */
+
+h1, h2, h3 {
+    color: var(--color-primary);
+    margin-top: 0;
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: none; /* Прибираємо підкреслення */
+}
+
+a:hover {
+    text-decoration: underline; /* Додаємо підкреслення при наведенні [cite: 85] */
+}
+
+/* --- 5. СТИЛІ ДЛЯ ДЕКАНА (був інлайн-стиль) --- */
+.dean-info {
+    display: flex; 
+    gap: 20px; 
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+.dean-info img {
+    border-radius: 4px;
+}
+
+
+/* --- 6. СТИЛІЗАЦІЯ ХЕДЕРА НАВІГАЦІЇ ТА ФУТЕРА --- */
+
+/* Вирівнювання логотипу та навігації */
+.header_wrapper {
+    display: flex;
+    justify-content: space-between; /* Розводимо елементи по краях */
+    align-items: center; /* Вирівнюємо по центру вертикально */
+    max-width: 1200px;
+    margin: 0 auto; 
+    padding: 15px 20px;
+}
+
+/* Логотип */
+.wrapper_logo-pic {
+    width: 64px; 
+    height: 64px;
+}
+
+/* Навігаційний список - РОБИМО ГОРИЗОНТАЛЬНИМ */
+.header_list-menu {
+    list-style: none; /* ВИДАЛЯЄМО МАРКЕРИ */
+    padding: 0;
+    margin: 0;
+    display: flex; /* РОЗМІЩУЄМО ЕЛЕМЕНТИ В РЯДОК */
+    gap: 30px; /* Проміжок між пунктами */
+}
+
+/* Стилізація посилань меню */
+.header_item a {
+    color: var(--color-text-light); /* Білий текст */
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 5px 0; 
+    transition: color 0.3s;
+}
+
+.header_item a:hover {
+    color: #ffcc00; /* Жовтий акцент при наведенні */
+    text-decoration: none;
+}
+
+/* Вирівнювання логотипу та навігації */
+.footer_wrapper {
+    display: flex;
+    justify-content: space-between; /* Розводимо елементи по краях */
+    align-items: center; /* Вирівнюємо по центру вертикально */
+    max-width: 1200px;
+    margin: 0 auto; 
+    padding: 25px 20px;
+}
+
+/* Стилі для елемента, що замінює навігацію у футері (наприклад, копірайт) */
+.footer_copyright {
+    color: var(--color-text-light);
+    font-size: 0.9em;
+    text-align: center; /* Щоб вирівняти текст до правого краю, як меню */
+}
+
+
+/* --- 7. СТИЛІЗАЦІЯ БЛОКУ НОВИН (index.html) --- */
+/* ЦЯ СЕКЦІЯ ПОВНІСТЮ ВИДАЛЕНА І ЗАМІНЕНА СЕКЦІЄЮ 11 */
+
+/* --- 8. СТИЛІЗАЦІЯ ФОРМИ (contacts.html) --- */
+
+.contact-form label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.contact-form input[type="text"], 
+.contact-form input[type="email"],
+.contact-form input[type="tel"], /* додаємо tel для телефону */
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Враховуємо padding у загальну ширину */
+}
+
+.contact-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.contact-form button {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: var(--color-accent);
+}
+
+/* --- 9. СТИЛІЗАЦІЯ ТАБЛИЦІ (education.html) --- */
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    margin-top: 20px;
+    table-layout: fixed;
+}
+
+.schedule-table th, .schedule-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    vertical-align: middle;
+}
+
+.schedule-table thead tr {
+    background-color: #e0e0e0;
+}
+
+/* Стилі для кольорових блоків розкладу */
+.lecture { /* Жовтий для лекцій (Лк) */
+    background-color: #f7e096;
+}
+
+.lab-practice { /* Блакитний для лабораторних (Лб) */
+    background-color: #d1e5f5; 
+}
+
+/* ======================================================= */
+/* --- 10. CSS GRID LAYOUT для index.html (Завдання 3) --- */
+/* ======================================================= */
+.grid-layout {
+    display: grid;
+    /* Визначаємо шаблон макету: 2 колонки, Header та Footer на всю ширину */
+    grid-template-columns: 250px 1fr; /* 250px для Aside, 1fr для Main */
+    grid-template-rows: auto 1fr auto; /* Висота: Header (авто), Content (залишок), Footer (авто) */
+    grid-template-areas:
+        "header header"
+        "aside main"
+        "footer footer";
+    min-height: 100vh; /* Використання всієї висоти екрана */
+    margin: 0;
+    padding: 0;
+}
+
+/* Призначаємо області (Grid Areas) */
+/* .header, .main, .footer вже існують в HTML */
+.header {
+    grid-area: header;
+}
+
+.aside {
+    grid-area: aside;
+    background-color: #f8f8f8; /* Легкий фон для aside */
+    padding: 20px 15px;
+    border-right: 1px solid #ccc;
+}
+
+.main {
+    grid-area: main;
+}
+
+.footer {
+    grid-area: footer;
+}
+
+/* Стилізація навігації в Aside */
+.aside-nav ul {
+    list-style: none;
+    padding: 0;
+}
+.aside-nav a {
+    display: block;
+    padding: 8px 0;
+    color: var(--color-text-dark);
+}
+.aside-nav a:hover {
+    color: var(--color-primary);
+}
+
+/* ======================================================= */
+/* --- 11. CSS GRID/FLEXBOX для news.html (Завдання 6) --- */
+/* ======================================================= */
+/* Контейнер для новинних карток, який використовує Grid */
+.news-grid-container {
+    display: grid;
+    /* Адаптивна сітка: minmax(300px, 1fr) забезпечує, що буде стільки стовпців, 
+       скільки поміститься, мінімум 300px шириною */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px; /* Відстань між картками */
+    padding: 20px;
+}
+
+/* Flexbox всередині кожної картки (news-list-item), щоб елементи розташовувались вертикально 
+   і, наприклад, кнопка/дата була завжди внизу (Завдання 6) */
+.news-list-item { 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 15px;
+    height: 100%; /* Забезпечуємо однакову висоту картки */
+}
+
+.news-image-container {
+    width: 100%;
+    height: 200px; /* Фіксована висота для всіх фото новин */
+    overflow: hidden; /* Обрізаємо все, що виходить за межі */
+    margin-bottom: 10px;
+    border-radius: 4px; /* Невелике заокруглення */
+}
+
+/* Забезпечуємо заповнення контейнера зображенням */
+.news-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Заповнює контейнер, обрізаючи зайве */
+    display: block;
+    object-position: top; /* Фокусуємо верхню частину зображення */
+}
+
+/* ==================================================== */
+/* --- 12. АДАПТИВНІ СТИЛІ: ПЛАНШЕТ (601px - 900px) --- */
+/* ==================================================== */
+@media (min-width: 601px) and (max-width: 900px) {
+    .grid-layout {
+        grid-template-columns: 180px 1fr; /* Зменшення aside */
+    }
+    .header_list-menu {
+        gap: 15px; /* Компактніше меню */
+    }
+    .content_wrapper {
+        padding: 15px;
+    }
+    body {
+        font-size: 15px;
+    }
+}
+
+/* ======================================================== */
+/* --- 13. АДАПТИВНІ СТИЛІ: МОБІЛЬНИЙ (Max-width 600px) --- */
+/* ======================================================== */
+@media (max-width: 600px) {
+    /* 1. СТЕКОВАНИЙ GRID LAYOUT */
+    .grid-layout {
+        grid-template-columns: 1fr; 
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas:
+            "header"
+            "aside"
+            "main"
+            "footer";
+    }
+
+    /* 2. ВЕРТИКАЛЬНЕ МЕНЮ */
+    .header_wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .header_list-menu {
+        flex-direction: column;
+        width: 100%;
+    }
+    .header_item {
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* 3. ОДНОКОЛОНКОВА ГАЛЕРЕЯ НОВИН */
+    .news-grid-container {
+        grid-template-columns: 1fr;
+    }
+    
+    /* 4. ІНФО ПРО ДЕКАНА (стекування) */
+    .dean-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* 5. АДАПТИВНІСТЬ ТАБЛИЦІ (Прокрутка) */
+    .content_wrapper > h1 + .schedule-table {
+        overflow-x: auto;
+        display: block; 
+    }
+    
+    /* 6. ФУТЕР (стекування) */
+    .footer_wrapper {
+        flex-direction: column;
+    }
+}
+
+/* ========================================== */
+/* --- 14. СТИЛІ ДЛЯ ДРУКУ (@media print) --- */
+/* ========================================== */
+@media print {
+    /* Приховуємо навігаційні та неважливі елементи */
+    .header, 
+    .aside, 
+    .footer, 
+    .header_nav, 
+    .contact-form button {
+        display: none !important;
+    }
+    
+    /* Grid Layout замінюємо на блочний для друку */
+    .grid-layout {
+        display: block; 
+    }
+
+    .main {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+    /* Очищення контейнерів від тіней та відступів */
+    .content_wrapper {
+        box-shadow: none !important;
+        padding: 0 !important;
+    }
+    
+    /* Стилі для таблиці розкладу */
+    .schedule-table td, .schedule-table th {
+        background-color: transparent !important; 
+        color: black !important;
+    }
+}
