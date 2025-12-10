@@ -1,0 +1,49 @@
+/* --- 2. CSS-ЗМІННІ ТА ЗАГАЛЬНІ СТИЛІ --- */
+
+:root {
+    /* Визначаємо універсальніші змінні для легшого використання */
+    --color-primary: #3a82e0;
+    --color-secondary: #2b70b5;
+    --color-text-light: #ffffff;
+    --color-text-dark: #333333;
+    --color-background: #f4f4f4;
+    --color-accent: #007bff;
+    --color-border: #235489;
+}
+
+body {
+    font-family: 'Roboto MF', sans-serif;
+    color: var(--color-text-dark);
+    background-color: var(--color-background);
+    margin: 0;
+    padding: 0;
+    /* Sticky Footer */
+    height: 100vh; 
+    overflow-x: hidden;
+}
+
+/* --- 4. СТИЛІ ТЕКСТУ ТА ПОСИЛАНЬ --- */
+h1, h2, h3 {
+    color: var(--color-primary);
+    margin-top: 0;
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+    
+    /* SCSS: Вкладення псевдокласу */
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+/* СТИЛІЗАЦІЯ ОБГОРТКИ КОНТЕНТУ */
+.content_wrapper {
+    max-width: 1200px;
+    margin: 20px auto; 
+    padding: 20px;
+    background-color: var(--color-text-light);
+    border-radius: 8px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

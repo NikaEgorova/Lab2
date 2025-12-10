@@ -1,0 +1,383 @@
+@charset "UTF-8";
+/* --- 2. CSS-ЗМІННІ ТА ЗАГАЛЬНІ СТИЛІ --- */
+:root {
+  /* Визначаємо універсальніші змінні для легшого використання */
+  --color-primary: #3a82e0;
+  --color-secondary: #2b70b5;
+  --color-text-light: #ffffff;
+  --color-text-dark: #333333;
+  --color-background: #f4f4f4;
+  --color-accent: #007bff;
+  --color-border: #235489;
+}
+
+body {
+  font-family: "Roboto MF", sans-serif;
+  color: var(--color-text-dark);
+  background-color: var(--color-background);
+  margin: 0;
+  padding: 0;
+  /* Sticky Footer */
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+/* --- 4. СТИЛІ ТЕКСТУ ТА ПОСИЛАНЬ --- */
+h1, h2, h3 {
+  color: var(--color-primary);
+  margin-top: 0;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  /* SCSS: Вкладення псевдокласу */
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* СТИЛІЗАЦІЯ ОБГОРТКИ КОНТЕНТУ */
+.content_wrapper {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: var(--color-text-light);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- 1. ШРИФТИ --- */
+@font-face {
+  font-family: "Roboto MF";
+  src: url("../fonts/Roboto-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto MF";
+  src: url("../fonts/Roboto-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+/* --- 3, 6, 12, 13. СТИЛІ БЛОКІВ HEADER ТА НАВІГАЦІЇ --- */
+header {
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+  padding: 0;
+  border-bottom: 2px solid var(--color-border);
+  /* Обгортка хедера */
+  /* Логотип */
+  /* Навігаційний список */
+  /* SCSS: Адаптивні стилі для хедера (планшет) */
+  /* SCSS: Адаптивні стилі для хедера (мобільний) */
+}
+header .header_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px 20px;
+}
+header .wrapper_logo-pic {
+  width: 64px;
+  height: 64px;
+}
+header .header_list-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 30px;
+}
+header .header_list-menu .header_item a {
+  color: var(--color-text-light);
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 5px 0;
+  transition: color 0.3s;
+}
+header .header_list-menu .header_item a:hover {
+  color: #ffcc00;
+  text-decoration: none;
+}
+@media (min-width: 601px) and (max-width: 900px) {
+  header .header_list-menu {
+    gap: 15px; /* Компактніше меню */
+  }
+}
+@media (max-width: 600px) {
+  header .header_wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  header .header_list-menu {
+    flex-direction: column;
+    width: 100%;
+  }
+  header .header_item {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* --- 3. СТИЛІ БЛОКУ MAIN (контент) --- */
+main {
+  margin: 20px auto;
+  padding: 20px;
+  background-color: var(--color-text-light);
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+/* --- 5. СТИЛІ ДЛЯ ДЕКАНА --- */
+.dean-info {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  /* SCSS: Адаптивні стилі (мобільний) */
+}
+.dean-info img {
+  border-radius: 4px;
+}
+@media (max-width: 600px) {
+  .dean-info {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* --- 8. СТИЛІЗАЦІЯ ФОРМИ (contacts.html) --- */
+.contact-form label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+.contact-form input[type=text],
+.contact-form input[type=email],
+.contact-form input[type=tel],
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.contact-form textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+.contact-form button {
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: background-color 0.3s;
+}
+.contact-form button:hover {
+  background-color: var(--color-accent);
+}
+
+/* --- 9. СТИЛІЗАЦІЯ ТАБЛИЦІ (education.html) --- */
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  margin-top: 20px;
+  table-layout: fixed;
+  /* Стилі для кольорових блоків розкладу */
+}
+.schedule-table th, .schedule-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  vertical-align: middle;
+}
+.schedule-table thead tr {
+  background-color: #e0e0e0;
+}
+.schedule-table .lecture {
+  background-color: #f7e096;
+}
+.schedule-table .lab-practice {
+  background-color: #d1e5f5;
+}
+
+/* --- 10. CSS GRID LAYOUT для index.html (Завдання 3) --- */
+.grid-layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: "header header" "aside main" "footer footer";
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+.grid-layout .header {
+  grid-area: header;
+}
+.grid-layout .aside {
+  grid-area: aside;
+  background-color: #f8f8f8;
+  padding: 20px 15px;
+  border-right: 1px solid #ccc;
+}
+.grid-layout .aside .aside-nav ul {
+  list-style: none;
+  padding: 0;
+}
+.grid-layout .aside .aside-nav a {
+  display: block;
+  padding: 8px 0;
+  color: var(--color-text-dark);
+}
+.grid-layout .aside .aside-nav a:hover {
+  color: var(--color-primary);
+}
+.grid-layout .main {
+  grid-area: main;
+}
+.grid-layout .footer {
+  grid-area: footer;
+}
+
+/* --- 11. CSS GRID/FLEXBOX для news.html (Завдання 6) --- */
+.news-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 20px;
+  /* SCSS: Адаптивні стилі (мобільний) */
+}
+@media (max-width: 600px) {
+  .news-grid-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.news-list-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 15px;
+  height: 100%;
+}
+.news-list-item .news-image-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+.news-list-item .news-image-container img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+  -o-object-position: top;
+     object-position: top;
+}
+
+/* ================================================= */
+/* --- 12, 13. ЗБІРНІ АДАПТИВНІ СТИЛІ (Grid Layout, body, Table) --- */
+/* ================================================= */
+/* ПЛАНШЕТ (601px - 900px) */
+@media (min-width: 601px) and (max-width: 900px) {
+  .grid-layout {
+    grid-template-columns: 180px 1fr; /* Зменшення aside */
+  }
+  .content_wrapper {
+    padding: 15px;
+  }
+  body {
+    font-size: 15px;
+  }
+}
+/* МОБІЛЬНИЙ (Max-width 600px) */
+@media (max-width: 600px) {
+  /* 1. СТЕКОВАНИЙ GRID LAYOUT */
+  .grid-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas: "header" "aside" "main" "footer";
+  }
+  /* 5. АДАПТИВНІСТЬ ТАБЛИЦІ (Прокрутка) */
+  .content_wrapper > h1 + .schedule-table {
+    overflow-x: auto;
+    display: block;
+  }
+}
+/* ========================================== */
+/* --- 14. СТИЛІ ДЛЯ ДРУКУ (@media print) --- */
+/* ========================================== */
+@media print {
+  /* Приховуємо навігаційні та неважливі елементи */
+  .header,
+  .aside,
+  .footer,
+  .header_nav,
+  .contact-form button {
+    display: none !important;
+  }
+  /* Grid Layout замінюємо на блочний для друку */
+  .grid-layout {
+    display: block;
+  }
+  .main {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  /* Очищення контейнерів від тіней та відступів */
+  .content_wrapper {
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+  /* Стилі для таблиці розкладу */
+  .schedule-table td, .schedule-table th {
+    background-color: transparent !important;
+    color: black !important;
+  }
+}
+/* --- 3, 6, 13. СТИЛІ БЛОКІВ FOOTER --- */
+footer {
+  background-color: var(--color-secondary);
+  color: var(--color-text-light);
+  padding: 0;
+  text-align: center;
+  /* Стилі параграфа */
+  /* Обгортка футера */
+  /* Стилі для елемента копірайту */
+  /* SCSS: Адаптивні стилі для футера (мобільний) */
+}
+footer p {
+  text-align: center;
+  margin: 0;
+  font-size: 0.9em;
+}
+footer .footer_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 25px 20px;
+}
+footer .footer_copyright {
+  color: var(--color-text-light);
+  font-size: 0.9em;
+  text-align: center;
+}
+@media (max-width: 600px) {
+  footer .footer_wrapper {
+    flex-direction: column;
+  }
+}/*# sourceMappingURL=main.css.map */

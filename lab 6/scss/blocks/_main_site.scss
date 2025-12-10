@@ -1,0 +1,257 @@
+/* --- 3. СТИЛІ БЛОКУ MAIN (контент) --- */
+main {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: var(--color-text-light);
+    border-radius: 8px;
+    box-shadow: none;
+}
+
+/* --- 5. СТИЛІ ДЛЯ ДЕКАНА --- */
+.dean-info {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    
+    img {
+        border-radius: 4px;
+    }
+
+    /* SCSS: Адаптивні стилі (мобільний) */
+    @media (max-width: 600px) {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* --- 8. СТИЛІЗАЦІЯ ФОРМИ (contacts.html) --- */
+.contact-form {
+    label {
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 5px;
+        font-weight: 700;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    textarea {
+        min-height: 150px;
+        resize: vertical;
+    }
+
+    button {
+        background-color: var(--color-primary);
+        color: var(--color-text-light);
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1.1em;
+        transition: background-color 0.3s;
+        
+        &:hover {
+            background-color: var(--color-accent);
+        }
+    }
+}
+
+/* --- 9. СТИЛІЗАЦІЯ ТАБЛИЦІ (education.html) --- */
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    margin-top: 20px;
+    table-layout: fixed;
+    
+    th, td {
+        border: 1px solid #ccc;
+        padding: 10px;
+        vertical-align: middle;
+    }
+
+    thead tr {
+        background-color: #e0e0e0;
+    }
+    
+    /* Стилі для кольорових блоків розкладу */
+    .lecture { 
+        background-color: #f7e096;
+    }
+    .lab-practice { 
+        background-color: #d1e5f5; 
+    }
+}
+
+/* --- 10. CSS GRID LAYOUT для index.html (Завдання 3) --- */
+.grid-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header header"
+        "aside main"
+        "footer footer";
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    
+    .header {
+        grid-area: header;
+    }
+
+    .aside {
+        grid-area: aside;
+        background-color: #f8f8f8;
+        padding: 20px 15px;
+        border-right: 1px solid #ccc;
+        
+        .aside-nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        .aside-nav a {
+            display: block;
+            padding: 8px 0;
+            color: var(--color-text-dark);
+            
+            &:hover {
+                color: var(--color-primary);
+            }
+        }
+    }
+
+    .main {
+        grid-area: main;
+    }
+
+    .footer {
+        grid-area: footer;
+    }
+}
+
+/* --- 11. CSS GRID/FLEXBOX для news.html (Завдання 6) --- */
+.news-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px;
+    padding: 20px;
+    
+    /* SCSS: Адаптивні стилі (мобільний) */
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.news-list-item { 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 15px;
+    height: 100%;
+    
+    .news-image-container {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            object-position: top;
+        }
+    }
+}
+
+/* ================================================= */
+/* --- 12, 13. ЗБІРНІ АДАПТИВНІ СТИЛІ (Grid Layout, body, Table) --- */
+/* ================================================= */
+
+/* ПЛАНШЕТ (601px - 900px) */
+@media (min-width: 601px) and (max-width: 900px) {
+    .grid-layout {
+        grid-template-columns: 180px 1fr; /* Зменшення aside */
+    }
+    .content_wrapper {
+        padding: 15px;
+    }
+    body {
+        font-size: 15px;
+    }
+}
+
+/* МОБІЛЬНИЙ (Max-width 600px) */
+@media (max-width: 600px) {
+    /* 1. СТЕКОВАНИЙ GRID LAYOUT */
+    .grid-layout {
+        grid-template-columns: 1fr; 
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas:
+            "header"
+            "aside"
+            "main"
+            "footer";
+    }
+    
+    /* 5. АДАПТИВНІСТЬ ТАБЛИЦІ (Прокрутка) */
+    .content_wrapper > h1 + .schedule-table {
+        overflow-x: auto;
+        display: block; 
+    }
+}
+
+
+/* ========================================== */
+/* --- 14. СТИЛІ ДЛЯ ДРУКУ (@media print) --- */
+/* ========================================== */
+@media print {
+    /* Приховуємо навігаційні та неважливі елементи */
+    .header, 
+    .aside, 
+    .footer, 
+    .header_nav, 
+    .contact-form button {
+        display: none !important;
+    }
+    
+    /* Grid Layout замінюємо на блочний для друку */
+    .grid-layout {
+        display: block; 
+    }
+
+    .main {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+    /* Очищення контейнерів від тіней та відступів */
+    .content_wrapper {
+        box-shadow: none !important;
+        padding: 0 !important;
+    }
+    
+    /* Стилі для таблиці розкладу */
+    .schedule-table td, .schedule-table th {
+        background-color: transparent !important; 
+        color: black !important;
+    }
+}

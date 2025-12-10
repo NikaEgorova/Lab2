@@ -1,0 +1,38 @@
+/* --- 3, 6, 13. СТИЛІ БЛОКІВ FOOTER --- */
+footer {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+    padding: 0;
+    text-align: center;
+    
+    /* Стилі параграфа */
+    p {
+        text-align: center;
+        margin: 0;
+        font-size: 0.9em;
+    }
+
+    /* Обгортка футера */
+    .footer_wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 25px 20px;
+    }
+
+    /* Стилі для елемента копірайту */
+    .footer_copyright {
+        color: var(--color-text-light);
+        font-size: 0.9em;
+        text-align: center;
+    }
+
+    /* SCSS: Адаптивні стилі для футера (мобільний) */
+    @media (max-width: 600px) {
+        .footer_wrapper {
+            flex-direction: column;
+        }
+    }
+}

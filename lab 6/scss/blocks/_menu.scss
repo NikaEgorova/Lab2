@@ -1,0 +1,69 @@
+/* --- 3, 6, 12, 13. СТИЛІ БЛОКІВ HEADER ТА НАВІГАЦІЇ --- */
+header {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 0;
+    border-bottom: 2px solid var(--color-border);
+    
+    /* Обгортка хедера */
+    .header_wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 15px 20px;
+    }
+    
+    /* Логотип */
+    .wrapper_logo-pic {
+        width: 64px;
+        height: 64px;
+    }
+    
+    /* Навігаційний список */
+    .header_list-menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: 30px;
+        
+        .header_item {
+            a {
+                color: var(--color-text-light);
+                font-weight: 700;
+                text-transform: uppercase;
+                padding: 5px 0;
+                transition: color 0.3s;
+                
+                &:hover {
+                    color: #ffcc00;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    
+    /* SCSS: Адаптивні стилі для хедера (планшет) */
+    @media (min-width: 601px) and (max-width: 900px) {
+        .header_list-menu {
+            gap: 15px; /* Компактніше меню */
+        }
+    }
+
+    /* SCSS: Адаптивні стилі для хедера (мобільний) */
+    @media (max-width: 600px) {
+        .header_wrapper {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .header_list-menu {
+            flex-direction: column;
+            width: 100%;
+        }
+        .header_item {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    }
+}
